@@ -1,0 +1,78 @@
+First Configure Access via OpenVPN (Advanced) - https://tryhackme.com/access
+
+->  nmap -A 10.10.133.216 
+
+tarting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-14 18:03 IST
+Stats: 0:02:47 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 50.00% done; ETC: 18:08 (0:02:41 remaining)
+Nmap scan report for 10.10.133.216
+Host is up (0.13s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 44:5f:26:67:4b:4a:91:9b:59:7a:95:59:c8:4c:2e:04 (RSA)
+|   256 0a:4b:b9:b1:77:d2:48:79:fc:2f:8a:3d:64:3a:ad:94 (ECDSA)
+|_  256 d3:3b:97:ea:54:bc:41:4d:03:39:f6:8f:ad:b6:a0:fb (ED25519)
+8000/tcp open  http-alt SimpleHTTP/0.6 Python/3.11.2
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: SimpleHTTP/0.6 Python/3.11.2
+|_http-title: Site doesn't have a title (text/html; charset=utf-8).
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, JavaRMI, LANDesk-RC, NotesRPC, Socks4, X11Probe, afp, giop: 
+|     source code string cannot contain null bytes
+|   FourOhFourRequest, LPDString, SIPOptions: 
+|     invalid syntax (<string>, line 1)
+|   GetRequest: 
+|     name 'GET' is not defined
+|   HTTPOptions, RTSPRequest: 
+|     name 'OPTIONS' is not defined
+|   Help: 
+|_    name 'HELP' is not defined
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8000-TCP:V=7.94SVN%I=7%D=3/14%Time=67D42229%P=x86_64-pc-linux-gnu%r
+SF:(GenericLines,1,"\n")%r(GetRequest,1A,"name\x20'GET'\x20is\x20not\x20de
+SF:fined\n")%r(X11Probe,2D,"source\x20code\x20string\x20cannot\x20contain\
+SF:x20null\x20bytes\n")%r(FourOhFourRequest,22,"invalid\x20syntax\x20\(<st
+SF:ring>,\x20line\x201\)\n")%r(Socks4,2D,"source\x20code\x20string\x20cann
+SF:ot\x20contain\x20null\x20bytes\n")%r(HTTPOptions,1E,"name\x20'OPTIONS'\
+SF:x20is\x20not\x20defined\n")%r(RTSPRequest,1E,"name\x20'OPTIONS'\x20is\x
+SF:20not\x20defined\n")%r(DNSVersionBindReqTCP,2D,"source\x20code\x20strin
+SF:g\x20cannot\x20contain\x20null\x20bytes\n")%r(DNSStatusRequestTCP,2D,"s
+SF:ource\x20code\x20string\x20cannot\x20contain\x20null\x20bytes\n")%r(Hel
+SF:p,1B,"name\x20'HELP'\x20is\x20not\x20defined\n")%r(LPDString,22,"invali
+SF:d\x20syntax\x20\(<string>,\x20line\x201\)\n")%r(SIPOptions,22,"invalid\
+SF:x20syntax\x20\(<string>,\x20line\x201\)\n")%r(LANDesk-RC,2D,"source\x20
+SF:code\x20string\x20cannot\x20contain\x20null\x20bytes\n")%r(NotesRPC,2D,
+SF:"source\x20code\x20string\x20cannot\x20contain\x20null\x20bytes\n")%r(J
+SF:avaRMI,2D,"source\x20code\x20string\x20cannot\x20contain\x20null\x20byt
+SF:es\n")%r(afp,2D,"source\x20code\x20string\x20cannot\x20contain\x20null\
+SF:x20bytes\n")%r(giop,2D,"source\x20code\x20string\x20cannot\x20contain\x
+SF:20null\x20bytes\n");
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.94SVN%E=4%D=3/14%OT=22%CT=1%CU=30393%PV=Y%DS=2%DC=T%G=Y%TM=67D4
+OS:22E2%P=x86_64-pc-linux-gnu)SEQ(SP=106%GCD=1%ISR=10C%TI=Z%CI=Z%II=I%TS=A)
+OS:SEQ(SP=107%GCD=1%ISR=10C%TI=Z%CI=Z%TS=A)SEQ(SP=107%GCD=1%ISR=10C%TI=Z%CI
+OS:=Z%II=I%TS=A)SEQ(SP=FC%GCD=1%ISR=10C%TI=Z%CI=Z%II=I%TS=C)SEQ(SP=FC%GCD=2
+OS:%ISR=10C%TI=Z%CI=Z%TS=A)OPS(O1=M508ST11NW6%O2=M508ST11NW6%O3=M508NNT11NW
+OS:6%O4=M508ST11NW6%O5=M508ST11NW6%O6=M508ST11)OPS(O1=M508ST11NW6%O2=M508ST
+OS:11NW6%O3=NNT11%O4=M508ST11NW6%O5=M508ST11NW6%O6=M508ST11)WIN(W1=F4B3%W2=
+OS:F4B3%W3=3D2%W4=F4B3%W5=F4B3%W6=F4B3)WIN(W1=F4B3%W2=F4B3%W3=F4B3%W4=F4B3%
+OS:W5=F4B3%W6=F4B3)ECN(R=Y%DF=Y%T=40%W=F507%O=M508NNSNW6%CC=Y%Q=)T1(R=Y%DF=
+OS:Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%
+OS:F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y
+OS:%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%R
+OS:D=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)I
+OS:E(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 3306/tcp)
+HOP RTT       ADDRESS
+1   133.07 ms 10.9.0.1
+2   133.96 ms 10.10.133.216
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 203.61 seconds
